@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend_Api;
 use App\Http\Controllers\Backend_Api\BaseController as BaseController;
 use App\Models\Contacts;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Validator;
 
 class ContactsController extends BaseController
@@ -173,5 +174,25 @@ class ContactsController extends BaseController
     }
 
     /* end search by  contacts or company  */
+
+    /* Contact frontend Data Inertia */
+
+    public function contacts_filter(Request $request)
+    {
+
+        $name = $request->search;
+
+        return Inertia::render(
+            'Contact',
+            [
+                'contacts' => Contacts::with('company')->whereHas('company', function ($query) use ($name) {
+                    $query->where('first_name', 'like', '%' . $name . '%')->orwhere('last_name', 'like', '%' . $name . '%')->orwhere('email', 'like', '%' . $name . '%')->orwhere('notes', 'like', '%' . $name . '%')->orwhere('company_name', 'like', '%' . $name . '%');
+                })->paginate(10)->withQueryString(),
+
+            ]
+        );
+    }
+
+    /* Contact frontend Data Inertia */
 
 }

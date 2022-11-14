@@ -3,6 +3,9 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Backend_Api\ContactsController;
+use App\Http\Controllers\Backend_Api\CompanyController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +30,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/testpage', function () {
+//     return Inertia::render('Samplepage');
+// })->middleware(['auth', 'verified'])->name('testpage');
+
+
+
+Route::get('/contacts', [ContactsController::class, 'contacts_filter'])->middleware(['auth', 'verified'])->name('contacts');
+Route::get('/companies', [CompanyController::class, 'company_filter'])->middleware(['auth', 'verified'])->name('companies');
+
+
 
 require __DIR__.'/auth.php';

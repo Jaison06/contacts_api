@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Backend_Api;
 use App\Http\Controllers\Backend_Api\BaseController as BaseController;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Validator;
-
-
 
 class CompanyController extends BaseController
 {
@@ -82,5 +81,21 @@ class CompanyController extends BaseController
 
     } /* end update a company  */
 
-    
+    /* Company frontend Data Inertia */
+
+    public function company_filter(Request $request)
+    {
+
+        $name = $request->search;
+
+        return Inertia::render(
+            'Company',
+            [
+                'companies' => Company::where('company_name', 'like', '%' . $name . '%')->paginate(10)->withQueryString(),
+
+            ]
+        );
+    }
+
+    /* Company frontend Data Inertia */
 }

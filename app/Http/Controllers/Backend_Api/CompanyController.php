@@ -7,6 +7,8 @@ use App\Models\Company;
 use Illuminate\Http\Request;
 use Validator;
 
+
+
 class CompanyController extends BaseController
 {
     /*  start retrive all companies  */
@@ -79,4 +81,6 @@ class CompanyController extends BaseController
         return $this->sendResponse($company, 'Company updated successfully.');
 
     } /* end update a company  */
+
+    
 }

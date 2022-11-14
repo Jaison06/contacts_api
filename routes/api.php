@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend_Api\CompanyController;
 use App\Http\Controllers\Backend_Api\ContactsController;
+use App\Http\Controllers\Backend_Api\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth:sanctum')->group( function () {
+
 /* Contacts Api Route (Single Resource)*/
 Route::get('companies', [CompanyController::class, 'index']);
 Route::get('companies/{id}', [CompanyController::class, 'show']);
@@ -36,6 +39,10 @@ Route::patch('contacts/{id}', [ContactsController::class, 'update']);
 Route::post('contacts/{id}', [ContactsController::class, 'store_multiple']);
 Route::get('contacts/company/{id}', [ContactsController::class, 'get_contacts']);
 Route::post('search/all', [ContactsController::class, 'search']);
+
+});
+
+Route::post('login', [LoginController::class, 'login']);
 
 /* Contacts Api Route (SEARCH Resource)*/
 //Route::get('search1/{name}', [ContactsController::class, 'search']);

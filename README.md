@@ -27,6 +27,8 @@ Request Body sample json : {"email":"example@gmail.com","password":"Example@2022
 Response shows  token. This token you can use for api authentication. sample  "token": "1|dm3FVayKJ99oZRomALpEuj49y71emSwaUXz2Y72y" 
 
 ** For every api call must use below Headers Key and Value **
+
+
 ** Accept : application/json and Authorization : Bearer 1|dm3FVayKJ99oZRomALpEuj49y71emSwaUXz2Y72y (use your token) **
 
 

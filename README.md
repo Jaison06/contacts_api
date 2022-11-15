@@ -18,10 +18,10 @@ For Setup the Application
 
 For Backend Api
 
-1. Fisrt Need to register the website. http://127.0.0.1:8000/register (hostname depend on the server)
+1. Fisrt Need to register the website. http://127.0.0.1:8000/register (hostname depends on the server)
 2. For api authentication 
 
-End point :  http://127.0.0.1:8000/api/login (hostname depend on the server) , Method : POST
+End point :  http://127.0.0.1:8000/api/login (hostname depends on the server) , Method : POST
 Headers : Accept : application/json
 Request Body sample json : {"email":"example@gmail.com","password":"Example@2022"}. Here use your registered email and password.
 Response shows  token. This token you can use for api authentication. sample  "token": "1|dm3FVayKJ99oZRomALpEuj49y71emSwaUXz2Y72y" 

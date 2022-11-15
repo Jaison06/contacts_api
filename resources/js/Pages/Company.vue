@@ -59,7 +59,7 @@ watch(search, (value) => {
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
                                 >
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">#</th>
+                                        <th scope="col" class="px-6 py-3">Company ID</th>
                                         <th scope="col" class="px-6 py-3">
                                             Company Name
                                         </th>
@@ -82,7 +82,7 @@ watch(search, (value) => {
                                             scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
                                         >
-                                            {{ n + 1 }}
+                                           {{ company.id }}
                                         </th>
                                         <th
                                             scope="row"

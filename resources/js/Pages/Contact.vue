@@ -66,7 +66,7 @@ watch(search, (value) => {
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
                                 >
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">#</th>
+                                        <th scope="col" class="px-6 py-3">Contact ID</th>
                                         <th scope="col" class="px-6 py-3">
                                             Name
                                         </th>
@@ -89,7 +89,7 @@ watch(search, (value) => {
                                 </div>
                                 <tbody>
                                     <tr
-                                        v-for="(contact, n) in contacts.data"
+                                        v-for="contact in contacts.data"
                                         :key="contact.id"
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                                     >
@@ -97,7 +97,7 @@ watch(search, (value) => {
                                             scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
                                         >
-                                            {{ n + 1 }}
+                                            {{ contact.id }}
                                         </th>
                                         <th
                                             scope="row"

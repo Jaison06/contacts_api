@@ -1,66 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+To get started:
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Laravel 9 / php 8
 
-## About Laravel
+Front end Vue3 Inertia
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+For Setup the Application
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Import files this repository (https://github.com/Jaison06/contacts_api)
+2. Rename `.env.example` to `.env`
+3. Provide your database credentials in `.env` (`DB_CONNECTION`,`DB_HOST`,`DB_PORT`,`DB_DATABASE`,`DB_USERNAME`,`DB_PASSWORD`)
+4. Run `composer install`
+5. Run `php artisan key:generate`
+6. Run `php artisan migrate`
+7. Run `php artisan serve`
+8. Run `npm install`
+9. Run `npm run dev`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+For Backend Api
 
-## Learning Laravel
+1. Fisrt Need to register the website.
+2. For api authentication 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+End point :  http://127.0.0.1:8000/api/login (hostname depend on the server) , Method : POST
+Headers : Accept : application/json
+Request Body sample json : {"email":"example@gmail.com","password":"Example@2022"}. Here use your registered email and password.
+Response shows  token. This token you can use for api authentication. sample  "token": "1|dm3FVayKJ99oZRomALpEuj49y71emSwaUXz2Y72y" 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+** For every api call must use below Headers Key and Value **
+** Accept : application/json and Authorization : Bearer 1|dm3FVayKJ99oZRomALpEuj49y71emSwaUXz2Y72y (use your token) **
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+Companies
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1.Create Company
+End Point http://127.0.0.1:8000/api/companies , Method : POST
+sample request json {"company_name" : "example"}
 
-### Premium Partners
+2.List Companies
+End Point http://127.0.0.1:8000/api/companies , Method : GET
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+2.List Companies with Pagination
+End Point http://127.0.0.1:8000/api/companies?page=yes , Method : GET
 
-## Contributing
+3.Single Company
+End Point http://127.0.0.1:8000/api/companies/{id} , Method : GET Here can put required company Id (Shows in CMS)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4.Update Company
+End Point http://127.0.0.1:8000/api/companies/{id} , Method : PUT/PATCH Here can put required company Id (Shows in CMS)
+sample request json {"company_name" : "example1"}
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Contacts
 
-## Security Vulnerabilities
+1.Create Contact
+End Point http://127.0.0.1:8000/api/contacts , Method : POST
+sample request json {"company_id":"1","first_name":"example","last_name":"example","phone":"1234567890","email":"example@mail.com"} phone and email are unique for conatcs. phone accept 10 digits number
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2.List Contacts
+End Point http://127.0.0.1:8000/api/contacts , Method : GET
 
-## License
+2.List Contacts with Pagination
+End Point http://127.0.0.1:8000/api/contacts?page=yes , Method : GET
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3.Single Contacts
+End Point http://127.0.0.1:8000/api/contacts/{id} , Method : GET Here can put required contact Id (Shows in CMS)
+
+4.Update Contact
+End Point http://127.0.0.1:8000/api/contacts/{id} , Method : PUT/PATCH Here can put required contact Id (Shows in CMS)
+sample request json {"company_id":"1","first_name":"example","last_name":"example","phone":"1234567890","email":"example@mail.com"}
+
+4.Create contacts for same company
+End Point http://127.0.0.1:8000/api/contacts/{id} , Method : POST Here can put required company Id (Shows in CMS). Please note here is company id
+sample request json [{"first_name":"example1","last_name":"example2","phone":"4223424447","email":"example1@mail.com"},
+{"first_name":"example2","last_name":"example2","phone":"4242452447","email":"example1@mail.com"}]
+
+5.List of  Contacts given company
+End Point http://127.0.0.1:8000/api/contacts/company/{id} , Method : GET Here can put required Company Id (Shows in CMS). Please note here is company id
+
+6.Add notes for a contact
+End Point http://127.0.0.1:8000/api/contacts/{id} , Method : PATCH Here can put required contact Id (Shows in CMS).
+sample request json {"notes":"example notes"}
+
+7.Search by contact name / company or email or notes
+End Point http://127.0.0.1:8000/api/search/all , Method : POST
+sample request json {"search":"example"}
+
+
+Front End (login with your credentials)
+
+Contacts listed with search filter http://127.0.0.1:8000/contacts
+Companies listed with search filter http://127.0.0.1:8000/companies
+
+
+
+End
+
+
+
+
+
+

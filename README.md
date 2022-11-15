@@ -91,6 +91,7 @@ sample request json {"search":"example"}
 Front End (login with your credentials)
 
 Contacts listed with search filter http://127.0.0.1:8000/contacts
+
 Companies listed with search filter http://127.0.0.1:8000/companies
 
 

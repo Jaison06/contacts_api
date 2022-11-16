@@ -98,7 +98,7 @@ watch(search, (value) => {
                                             {{
                                                 new Date(
                                                     company.created_at
-                                                ).toLocaleString("nl-NL")
+                                                ).toLocaleString("en-GB")
                                             }}
                                         </th>
                                     </tr>

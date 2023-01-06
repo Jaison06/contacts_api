@@ -1,6 +1,6 @@
 To get started:
 
-Laravel 9 / php 8
+Laravel 9 / php 8.2
 
 Front end Vue3 Inertia
 
